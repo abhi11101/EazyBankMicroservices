@@ -6,6 +6,11 @@ spring:
 #    active: native
 #    Git is used for GitHub Repo
      active: git
+#  rabbitmq:
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
   cloud:
     config:
       server:
@@ -25,3 +30,20 @@ spring:
           force-pull: true
 server:
   port: 8071
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+
