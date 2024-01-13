@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+#    Native is used for Classpath and File system
+#    active: native
+#    Git is used for GitHub Repo
+     active: git
+  cloud:
+    config:
+      server:
+#        Native is commented as we are using Git
+#        native:
+#          Reading from ClassPath location
+#          search-locations: "classpath:/config"
+
+#          Reading from File System Location
+#           search-locations: "file:///C://Users//thaku//OneDrive//Documents//Config"
+        git:
+          uri: "https://github.com/abhi11101/EazyBanksConfig.git"
+          default-label: master
+          timeout: 5
+#          Clone Github repo to local system during startup. If false then cloning will be done during first request
+          clone-on-start: true
+          force-pull: true
+server:
+  port: 8071

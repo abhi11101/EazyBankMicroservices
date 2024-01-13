@@ -2,6 +2,12 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: "goku"  #This will be used to create URL for config server with  profiles like http://localhost:8071/goku/default
+  profiles:
+    active: default
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
